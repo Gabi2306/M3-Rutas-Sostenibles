@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rutas sostenibles · Santa Marta</title>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<header><h1>Rutas sostenibles · Santa Marta</h1></header>
+<nav id="menu">
+  <a href="#perfil">1. Mi perfil · turistas</a>
+  <a href="#recomendadas">2. Rutas recomendadas</a>
+  <a href="#oferta">3. Panel de oferta · guías y operadores</a>
+  <a href="#autoridad">4. Panel de autoridad</a>
+</nav>
+<main>
+
+<section id="perfil">
+  <h2>Cuéntanos cómo quieres viajar</h2>
+  <p class="ayuda">Con estos datos te mostramos solo las rutas que puedes hacer en tu fecha.</p>
+  <div class="tarjeta">
+    <label for="dif">¿Qué tan exigente puede ser la caminata?</label>
+    <select id="dif">
+      <option value="1">Baja: terreno fácil, pocas horas</option>
+      <option value="2" selected>Media: algo de pendiente, medio día</option>
+      <option value="3">Alta: varios días de caminata</option>
+    </select>
+    <label>¿Qué te gusta hacer?</label>
+    <div class="opciones" id="acts">
+      <label><input type="checkbox" value="Ecoturismo" checked> Ecoturismo</label>
+      <label><input type="checkbox" value="Trekking"> Trekking</label>
+      <label><input type="checkbox" value="Buceo"> Buceo</label>
+    </div>
+    <label for="fecha">¿Qué día quieres ir?</label>
+    <input type="date" id="fecha" value="2026-02-10">
+    <p class="estado" id="guardado" role="status"></p>
+    <button id="ver">Ver rutas para mí</button>
+  </div>
+</section>
+
+<section id="recomendadas">
+  <h2>Rutas para ti</h2>
+  <p><a href="#perfil">Cambiar mi perfil</a></p>
+  <p class="ayuda" id="resumen"></p>
+  <div id="aptas"></div>
+  <h2 class="subtitulo">No te las mostramos como opción, y por qué</h2>
+  <div id="descartadas"></div>
+</section>
+
+<section id="detalle">
+  <h2 id="d-nombre"></h2>
+  <p class="ayuda" id="d-sub"></p>
+  <div class="tarjeta">
+    <table>
+      <tr><th>Estado en tu fecha</th><td id="d-estado"></td></tr>
+      <tr><th>Dificultad</th><td id="d-dif"></td></tr>
+      <tr><th>Duración</th><td id="d-dur"></td></tr>
+      <tr><th>Costo estimado</th><td id="d-costo"></td></tr>
+      <tr><th>Cupo diario de la zona</th><td id="d-cupo"></td></tr>
+      <tr><th>Norma de la zona</th><td id="d-norma"></td></tr>
+    </table>
+    <div class="aviso" id="d-aviso" hidden></div>
+    <p><button id="pedir">Solicitar esta ruta con guía</button> <a class="boton sec" href="#recomendadas">Volver a las rutas</a></p>
+    <p class="estado" id="pedido" role="status"></p>
+  </div>
+</section>
+
+<section id="oferta">
+  <h2>Publicar una ruta</h2>
+  <p class="ayuda">Para guías y operadores autorizados.</p>
+  <div class="tarjeta">
+    <label for="o-nombre">Nombre de la ruta</label><input type="text" id="o-nombre" value="Amanecer en Minca">
+    <label for="o-zona">Zona</label>
+    <select id="o-zona"><option>Minca</option><option>Taganga</option><option>Parque Tayrona</option><option>Ciudad Perdida</option></select>
+    <label for="o-dif">Dificultad</label>
+    <select id="o-dif"><option>Baja</option><option>Media</option><option>Alta</option></select>
+    <div class="aviso">Las rutas de trekking solo las puede publicar un operador autorizado.</div>
+    <button id="publicar">Publicar ruta</button>
+    <p class="estado" id="o-estado" role="status"></p>
+  </div>
+</section>
+
+<section id="autoridad">
+  <h2>Publicar un cierre</h2>
+  <p class="ayuda">Para la autoridad ambiental. El cierre se refleja en las recomendaciones al instante.</p>
+  <div class="tarjeta">
+    <label for="a-zona">Zona</label>
+    <select id="a-zona"><option>Parque Tayrona</option><option>Minca</option><option>Taganga</option><option>Ciudad Perdida</option></select>
+    <label for="a-ini">Desde</label><input type="date" id="a-ini" value="2026-06-01">
+    <label for="a-fin">Hasta</label><input type="date" id="a-fin" value="2026-06-15">
+    <label for="a-motivo">Motivo</label><input type="text" id="a-motivo" value="Cierre periódico acordado con pueblos indígenas">
+    <button id="cerrar">Publicar cierre</button>
+    <p class="estado" id="a-estado" role="status"></p>
+  </div>
+</section>
+
+</main>
+<script src="js/utilidades.js"></script>
+<script src="js/datos.js"></script>
+<script src="js/servicios.js"></script>
+<script src="js/vistas/perfil.js"></script>
+<script src="js/vistas/recomendadas.js"></script>
+<script src="js/vistas/detalle.js"></script>
+<script src="js/vistas/oferta.js"></script>
+<script src="js/vistas/autoridad.js"></script>
+<script src="js/router.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
